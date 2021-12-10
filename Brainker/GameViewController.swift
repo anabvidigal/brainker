@@ -11,14 +11,16 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
-    var scene: GameScene!
-    
+    var gameSceneRef: GameScene!
+    // 1, variavel
     
     @IBOutlet weak var circle: UIImageView!
     @IBOutlet weak var square: UIImageView!
     @IBOutlet weak var triangle: UIImageView!
         
     @IBOutlet weak var scoreLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -27,13 +29,13 @@ class GameViewController: UIViewController {
         if let view = self.view as! SKView? {
             
             // Load the SKScene from 'GameScene.sks'
-            scene = SKScene(fileNamed: "GameScene") as? GameScene
+            gameSceneRef = SKScene(fileNamed: "GameScene") as? GameScene
             // Set the scale mode to scale to fit the window
-            scene.scaleMode = .aspectFill
+            gameSceneRef.scaleMode = .aspectFill
                 
             
             // Present the scene
-            view.presentScene(scene)
+            view.presentScene(gameSceneRef)
             
             view.ignoresSiblingOrder = true
             
@@ -44,27 +46,33 @@ class GameViewController: UIViewController {
         
     }
 
+    
+    // a gameViewController tem uma variavel da classe GameScene
+    // essa função passa a scene
+    // 2
     override func viewDidAppear(_ animated: Bool) {
-        scene.setGameVC(gameVC: self)
+        // manda a própria referencia (gamevc) para a gameScene
+        gameSceneRef.setGameVC(gameVC: self)
     }
     
+    
     @IBAction func leftAction(_ sender: Any) {
-        scene.leftAction()
+        gameSceneRef.leftAction()
     }
     
     
     @IBAction func rightAction(_ sender: Any) {
-        scene.rightAction()
+        gameSceneRef.rightAction()
     }
     
     
     @IBAction func leftStopAction(_ sender: Any) {
-        scene.leftStopAction()
+        gameSceneRef.leftStopAction()
     }
     
     
     @IBAction func rightStopAction(_ sender: Any) {
-        scene.rightStopAction()
+        gameSceneRef.rightStopAction()
     }
     
     
@@ -82,6 +90,10 @@ class GameViewController: UIViewController {
     
     func displayScore(newScore: Int) {
         scoreLabel.text = "Score: \(newScore)"
+    }
+    
+    func displayTime(time: Int) {
+        timeLabel.text = "Time: \(time)s"
     }
     
     

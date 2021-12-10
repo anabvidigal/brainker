@@ -64,8 +64,8 @@ class MemorySpawner {
     }
     
     private func getRandomPosition() -> CGPoint {
-        let x = CGFloat.random(in: -960...320)
-        let y = CGFloat.random(in: -210...0)
+        let x = CGFloat.random(in: -1055...3594)
+        let y = CGFloat.random(in: -288...1204)
         return CGPoint(x: x, y: y)
         
     }

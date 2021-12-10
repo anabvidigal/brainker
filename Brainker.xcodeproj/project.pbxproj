@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B4E12E32762358A00869DA2 /* Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2B4E12E22762358A00869DA2 /* Tiles.sks */; };
 		2B9080A1275F9EE30035AF75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9080A0275F9EE30035AF75 /* AppDelegate.swift */; };
 		2B9080A3275F9EE30035AF75 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2B9080A2275F9EE30035AF75 /* GameScene.sks */; };
 		2B9080A7275F9EE30035AF75 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9080A6275F9EE30035AF75 /* GameScene.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B4E12E22762358A00869DA2 /* Tiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tiles.sks; sourceTree = "<group>"; };
 		2B90809D275F9EE30035AF75 /* Brainker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brainker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9080A0275F9EE30035AF75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9080A2275F9EE30035AF75 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				2B9080AA275F9EE30035AF75 /* Main.storyboard */,
 				2B9080AD275F9EE50035AF75 /* Assets.xcassets */,
 				2B9080AF275F9EE50035AF75 /* LaunchScreen.storyboard */,
+				2B4E12E22762358A00869DA2 /* Tiles.sks */,
 			);
 			path = Brainker;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			files = (
 				2B9080AC275F9EE30035AF75 /* Main.storyboard in Resources */,
 				2B9080A3275F9EE30035AF75 /* GameScene.sks in Resources */,
+				2B4E12E32762358A00869DA2 /* Tiles.sks in Resources */,
 				2B9080AE275F9EE50035AF75 /* Assets.xcassets in Resources */,
 				2B9080B1275F9EE50035AF75 /* LaunchScreen.storyboard in Resources */,
 			);

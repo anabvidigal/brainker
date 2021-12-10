@@ -14,7 +14,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var cam: SKCameraNode!
     var memorySpawner: MemorySpawner!
     var gameManager: GameManager!
+    var gameTime: TimeInterval = 0
+    var lastTime: TimeInterval = 0
+    var remainingTime: Int = 6
     
+    // 3 - guarda anotação da gameVC
+    var gameViewControllerRef: GameViewController!
     
     override func didMove(to view: SKView) {
         // abriu o jogo, rodou
@@ -36,8 +41,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    // função que conversa com a GameViewController
+    // 4 - ouve a gameVC e anota
     func setGameVC(gameVC: GameViewController) {
+        
+        // fala pro gameManager o contato da gameVC
         gameManager.setGameVC(gameVC: gameVC)
+        
+        self.gameViewControllerRef = gameVC
     }
     
     
@@ -115,12 +126,63 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func deliveryMemory(type: MemoryType) {
         gameManager.deliveryCheck(type: type)
     }
-        
     
+    func subtractSecond() {
+        if remainingTime == 0 {
+            return
+        }
+        
+        remainingTime -= 1
+        
+        if remainingTime == 0 {
+            print("Game Over")
+            // chamar fase REM
+
+        }
+        
+        if gameViewControllerRef != nil {
+            gameViewControllerRef.displayTime(time: remainingTime)
+        }
+    }
+        
+    // Every tick
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered - Every tick!!!
+        // Called before each frame is rendered
+        
+        // TEMPO
+        
+        if lastTime == 0 {
+            lastTime = currentTime
+            return
+        }
+        
+        // deltaTime = tempo da chamada
+        // currentTime = tempo de agora
+        // lastTime = ultima vez que viu a hora
+        
+        let deltaTime = currentTime - lastTime
+        lastTime = currentTime
+        
+        gameTime += deltaTime
+        
+        if gameTime > 1 {
+            subtractSecond()
+            gameTime = 0
+        }
+        
+        // primeira vez: gameTime = 0, deltaTime = 0.16
+        // gameTime = 0.16
+        // segunda vez: 0.16 + 0.16
+        // 0.32
+        // terceira: 0.32 + 0.16
+        // 0.48
+        
+        // TEMPO
+        
+        
         player.update()
         cam.position = player.node.position
+        
         
     }
 }

@@ -11,7 +11,7 @@ import SpriteKit
 class Player {
     
     private (set) var node: SKSpriteNode
-    private var jumpForce = CGFloat(2000)
+    private var jumpForce = CGFloat(4000)
     private var moveSpeed = CGFloat(10000)
     private var jumpsAmount = 2
     
